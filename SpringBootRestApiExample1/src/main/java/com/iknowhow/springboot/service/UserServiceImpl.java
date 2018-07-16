@@ -1,0 +1,72 @@
+package com.iknowhow.springboot.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specifications;
+
+import com.iknowhow.springboot.model.User;
+import com.iknowhow.springboot.repository.UserRepository;
+import org.springframework.stereotype.Service;
+import com.iknowhow.springboot.util.UserSpecification;
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Override
+	public User findById(long id) {
+		 return userRepository.findOne(id);
+	}
+
+	@Override
+	public User findByName(String name) {
+		List<User> users = userRepository.findAll();
+		for(User u : users) {
+			if (u.getName() == name) {
+				return u;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void saveUser(User user) {
+		userRepository.save(user);
+
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userRepository.save(user);
+	}
+
+	@Override
+	public void deleteUserById(long id) {
+		userRepository.delete(id);
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		return userRepository.findAll();
+	}
+	
+	@Override
+	public void deleteAllUsers() {
+		userRepository.deleteAll();
+	}
+
+	@Override
+	public boolean isUserExist(User user) {
+		return userRepository.exists(user.getId());
+	}
+	
+	@Override
+	public List<User> searchTerm(String term) {
+		
+		return userRepository.findAll(Specifications.where(UserSpecification.search(term)));
+	}
+	
+}

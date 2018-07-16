@@ -1,0 +1,12 @@
+com\iknowhow\springboot\util\ErrorExceptionHandler.class
+com\iknowhow\springboot\SpringBootRestApiApp.class
+com\iknowhow\springboot\model\User.class
+com\iknowhow\springboot\util\CustomErrorType.class
+com\iknowhow\springboot\util\UserSpecification.class
+com\iknowhow\springboot\service\UserServiceImpl.class
+com\iknowhow\springboot\util\SearchCriteria.class
+com\iknowhow\springboot\util\UserSpecification$1.class
+com\iknowhow\springboot\controller\RestApiController.class
+com\iknowhow\springboot\repository\UserRepository.class
+com\iknowhow\springboot\service\UserService.class
+com\iknowhow\springboot\util\ErrorDetails.class
